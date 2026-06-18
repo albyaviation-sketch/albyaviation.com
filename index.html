@@ -633,6 +633,18 @@ var F35 = [
     item.addEventListener('click', function(){ f35Open(i); });
     f35Grid.appendChild(item);
   });
+  // Fix object-position for specific photos
+  var f35Items = f35Grid.querySelectorAll('.grid-item');
+  if(f35Items[0]) f35Items[0].querySelector('img').style.objectPosition = 'center center';
+  if(f35Items[1]) f35Items[1].querySelector('img').style.objectPosition = 'center 40%';
+  if(f35Items[2]){
+    f35Items[2].querySelector('img').style.objectFit = 'cover';
+    f35Items[2].querySelector('img').style.objectPosition = 'center 15%';
+  }
+  if(f35Items[3]) f35Items[3].querySelector('img').style.objectPosition = 'center center';
+  if(f35Items[5]) f35Items[5].querySelector('img').style.objectPosition = 'center 50%';
+  if(f35Items[8]) f35Items[8].querySelector('img').style.objectPosition = 'center 25%';
+
   var obs3 = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
   },{threshold:0.1});
